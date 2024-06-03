@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-
+ 
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +23,10 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: 
-        echo "Iniciando Login"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "Fin del login"
+    - name: Build Docker Image
+      run: 
+        docker build -t samcp210/docker-graphql:0.0.2 .
+    - name: Push Docker Image
+      run: 
+        docker push samcp210/docker-graphql:0.0.2 .

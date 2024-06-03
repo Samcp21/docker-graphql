@@ -29,4 +29,4 @@ jobs:
         docker build -t samcp210/docker-graphql:0.0.2 .
     - name: Push Docker Image
       run: 
-        docker push samcp210/docker-graphql:0.0.2 .
+        docker push samcp210/docker-graphql:0.0.2
